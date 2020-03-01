@@ -51,7 +51,7 @@ npm install @alcatraz-components/accordion
 ```
 
 ```js
-import '@alcatraz-components/accordion
+import '@alcatraz-components/accordion';
 ```
 
 If you are using [webpack](https://webpack.js.org/), you can instead include the component in your entry array:
