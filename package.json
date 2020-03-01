@@ -1,5 +1,5 @@
 {
-  "name": "@alcatraz-component/accordion",
+  "name": "@alcatraz-components/accordion",
   "version": "1.0.0",
   "description": "An accordion web component",
   "main": "index.js",

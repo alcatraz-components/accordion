@@ -23,6 +23,7 @@ class AlcatrazAccordion extends LitElement {
     return css`
       :host {
         border: var(--alcatraz-accordion-border, 1px solid #ddd);
+        border-radius: var(--alcatraz-accordion-border-radius, 0);
         display: block;
       }
 
