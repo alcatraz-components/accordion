@@ -1,0 +1,25 @@
+{
+  "name": "@alcatraz-component/accordion",
+  "version": "1.0.0",
+  "description": "An accordion web component",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alcatraz-components/accordion.git"
+  },
+  "keywords": [
+    "web-component"
+  ],
+  "author": "carrieforde <carrie@carrieforde.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alcatraz-components/accordion/issues"
+  },
+  "homepage": "https://github.com/alcatraz-components/accordion#readme",
+  "dependencies": {
+    "lit-element": "^2.2.1"
+  }
+}
