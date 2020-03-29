@@ -13,8 +13,6 @@ class AlcatrazAccordion extends LitElement {
   static get properties() {
     return {
       panels: { type: Array },
-      currentPanel: { type: Number },
-      previousPanel: { type: Number },
       multiPanel: { type: Boolean }
     };
   }
@@ -45,49 +43,6 @@ class AlcatrazAccordion extends LitElement {
     return changedProperties;
   }
 
-  handleKeyup(event) {
-    const { keyCode } = event;
-    let { target } = event;
-
-    event.preventDefault();
-
-    switch (keyCode) {
-      // Arrow down.
-      case 40:
-        if (target !== this.panels[this.panels.length - 1]) {
-          target = target.nextElementSibling;
-        } else {
-          target = this.panels[0];
-        }
-        break;
-
-      // Arrow up.
-      case 38:
-        if (target !== this.panels[0]) {
-          target = target.previousElementSibling;
-        } else {
-          target = this.panels[this.panels.length - 1];
-        }
-        break;
-
-      // Enter & Space.
-      case 13:
-      case 32:
-        this.updatePanels(target);
-        break;
-
-      default:
-        break;
-    }
-
-    target.focus();
-  }
-
-  handleClick(event) {
-    const { target } = event;
-    this.updatePanels(target);
-  }
-
   updatePanels(target) {
     this.panels.map(panel => {
       if (
@@ -108,6 +63,67 @@ class AlcatrazAccordion extends LitElement {
     });
 
     return this.panels;
+  }
+
+  setNextPanel(target) {
+    if (target !== this.panels[this.panels.length - 1]) {
+      return target.nextElementSibling;
+    } else {
+      return this.panels[0];
+    }
+  }
+
+  setPreviousPanel(target) {
+    if (target !== this.panels[0]) {
+      return target.previousElementSibling;
+    } else {
+      return this.panels[this.panels.length - 1];
+    }
+  }
+
+  handleKeyup(event) {
+    const { keyCode } = event;
+    let { target } = event;
+
+    event.preventDefault();
+
+    switch (keyCode) {
+      // Tab.
+      case 9:
+        if (event.shiftKey) {
+          target = this.setPreviousPanel(target);
+        } else {
+          target = this.setNextPanel(target);
+        }
+
+        break;
+
+      // Arrow down.
+      case 40:
+        target = this.setNextPanel(target);
+        break;
+
+      // Arrow up.
+      case 38:
+        target = this.setPreviousPanel(target);
+        break;
+
+      // Enter & Space.
+      case 13:
+      case 32:
+        this.updatePanels(target);
+        break;
+
+      default:
+        break;
+    }
+
+    target.focus();
+  }
+
+  handleClick(event) {
+    const { target } = event;
+    this.updatePanels(target);
   }
 
   render() {
