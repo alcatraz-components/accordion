@@ -20,8 +20,9 @@ class AlcatrazAccordionPanel extends LitElement {
       }
 
       button {
-        background-color: var(--alcatraz-accordion-button-bg-color, #fff);
+        background-color: transparent;
         border: none;
+        color: var(--alcatraz-accordion-item-btn-color, inherit);
         display: block;
         font-size: var(--alcatraz-accordion-button-font-size, 20px);
         padding: 0;
